@@ -1,0 +1,50 @@
+<div class="main-content">
+
+
+        <div class="container">
+
+
+
+        <div class="navbar navbar-default">
+            <div class="navbar-header">
+                <a class="navbar-brand" href>Files Upload</a>
+            </div>
+        </div>
+
+<input type="file"
+       value="Upload Resume" 
+       ngFileSelect
+       [options]="options"
+       (onUpload)="handleUpload($event)"
+       (beforeUpload)="beforeUpload($event)">
+ 
+<!-- drag & drop file example-->
+<style>
+  .file-over { border: dotted 3px red; } /* Default class applied to drop zones on over */
+</style> 
+
+<div ngFileDrop
+     [options]="options"
+     (onUpload)="handleUpload($event)"
+     [ngClass]="{'file-over': hasBaseDropZoneOver}"
+     (onFileOver)="fileOverBase($event)"
+     (beforeUpload)="beforeUpload($event)">
+</div>
+ 
+<div>
+Response: {{ uploadFile | json }}
+</div>
+            
+            <!--<div class="col-md-4">
+                <form method="post" enctype="multipart/form-data">
+                    <input type="file" id="files" name="files" multiple="multiple" />
+                    <p style="text-align: right; margin-top: 20px;">
+                        <input type="submit" value="Upload Resume" class="btn btn-lg btn-primary" style="background-color: #3364FF" />
+                    </p>
+                </form>
+            </div>-->
+            
+        </div>
+        
+            </div>
+        
